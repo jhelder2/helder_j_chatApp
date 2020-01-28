@@ -36,6 +36,8 @@ const vm = new Vue({
                 //^  "||" is called a double pipe operator or an "or" operator
                 // if nickName is set, use it's value |or| use "anonymous" //
             })
+
+            this.message = "";
         }
     },
 
