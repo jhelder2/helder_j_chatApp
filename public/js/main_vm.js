@@ -12,6 +12,11 @@ function runDisconnectMessage(packet) {
 };
 
 
+function appendNewMessage(msg){
+    //take incoming msg and push it into messages array //
+    vm.messages.push(msg);
+};
+
 // this is our main Vue instance //
 const vm = new Vue({
     data: {
@@ -25,7 +30,7 @@ const vm = new Vue({
         dispatchMessage() {
             //emit a message event and send the message to the server //
             console.log('handle send message');
-            socket.emit('chat message', {
+            socket.emit('chat_message', {
                 content: this.message,
                 name: this.nickName || "anonymous"
                 //^  "||" is called a double pipe operator or an "or" operator
@@ -47,3 +52,4 @@ const vm = new Vue({
 // some event handling -> these events are coming from the server //
 socket.addEventListener('connected', setUserId);
 socket.addEventListener('user_disconnect', runDisconnectMessage);
+socket.addEventListener('new_message', appendNewMessage);
