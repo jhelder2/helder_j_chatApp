@@ -1,0 +1,94 @@
+main{
+
+.light-box{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    height: 100vH;
+    width: 100vW;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1;
+
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: 80%;
+        width: 90%;
+        max-width: 420px;
+        margin: auto 20px;
+        background-image: url(/images/login-back.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        font-family: brevier, sans-serif;
+        font-weight: bolder;
+        font-style: normal;
+       
+        img {
+            margin: auto;
+            display: block;
+            position: absolute;
+            height: 60%;
+            max-width: 100%;
+            z-index: 0;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            position: absolute;
+            z-index: 2;
+            height: 85%;
+            width: 80%;
+            margin: auto;
+
+            h1{
+                font-size: 2.4rem;
+                font-weight: normal;
+                color: white;
+                text-shadow: 1px 1px 5px rgb(0, 0, 0);
+                padding: 0;
+                position: relative;
+
+                i{
+                    color: black;
+                    font-size: 2.4rem;
+                    font-weight: normal;
+                    text-shadow: 1px 1px 5px rgb(255, 255, 255);
+                }
+            }
+    
+            .uname {
+                label{
+                    font-size: 1.2rem;
+                    text-shadow: 0 0 2px rgb(255, 255, 255);
+                }
+                .name-input{
+                    font-size: 1.1rem;
+                    width: 75%;
+                    padding: 3px;
+                    background-color: rgba(0, 255, 255, 0.5);
+                    border: 2px solid black;
+                    margin: 10px 5px;
+                }
+            }
+            .go-button{
+                font-size: 1.1rem;
+                width: 30%;
+                padding: 3px;
+                background-color: rgba(0, 255, 255, 0.75);
+                border: 2px solid black;
+                border-radius: 8px;
+                margin: 10px 0;
+            }
+        }
+        
+    }
+}
+}

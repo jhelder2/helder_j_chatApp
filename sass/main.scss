@@ -3,70 +3,202 @@
 	margin: 0; padding: 0; box-sizing: border-box;
 }
 
-html, body { height: 100%; }
+html, body { height: 100vH; }
 
-body { font: 16px Helvetica, Arial; }
+body { 
+	font-family: brevier, sans-serif;
+	font-weight: bolder;
+	font-style: normal; 
+}
+
+p, h1, h1, h2, h3, h4, h5, i, a, label, input, form, ul, li, nav {
+	font-family: brevier, sans-serif;
+	font-weight: bolder;
+	font-style: normal;
+}
+
+// imports
+
+@import 'modules/_message';
+@import 'modules/_login';
+
+
 
 main { 
-	display: flex;
-	height: 100%;
-	flex-direction: row;
-}
-.form-container, .messages { padding: 20px; }
-.form-container { 
-	flex: 1; 
-	border: 6px solid #bfcfd6;
-	background-color: #e3edf1;
 
-	label { display: block; margin-bottom: 0.5rem; }
+	.hidden{ display: none !important;}
+	
+	font-family: brevier, sans-serif;
+	font-weight: bolder;
+	font-style: normal;
+	display: flex;
+	margin: auto;
+	height: 90vH;
+	width: 100vW;
+	flex-direction: row;
+
+	@media only screen and (max-width: 822px) {
+		width:100%;
+	}
+	@media only screen and (max-width: 600px){
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+
+		.form-container, .messages{
+			width: 100% !important;
+		}
+		.form-container{
+			display: flex !important;
+			flex-direction: column;
+			justify-content: space-evenly;
+			align-items: flex-start;
+			height: 40%;
+			margin: 0 !important;
+			order: 1;
+		}
+		.messages{
+			height: 50%;
+			order: 0;
+		}
+
+		textarea { 
+			height: 100px !important;
+		 }
+
+		 form{
+			 margin: 12px 0 !important;
+			 width: 100%;
+		 }
+	}
+	@media only screen and (max-width: 408px){
+		h1{
+			font-size: 1.4rem;
+		}
+		.messages{
+			margin-top: 40px !important;
+			height: 50%;
+		}
+		.form-container{
+			height: 45%;
+			input {
+				font-size: .5em;
+			}
+			textarea{
+				font-size: .8rem;
+			}
+			label {
+				font-size: .6rem;
+				margin-bottom: 0.2rem !important;
+			}
+			form{
+				margin: 0 0 !important;
+			}
+			input[type=submit]{	
+				font-size: .8rem;
+			}
+		}
+	}
+	
+
+	h1 {
+		display: block; 
+		position: absolute; 
+		top: 0; 
+		padding: 0 20px;
+		text-shadow: 1px 1px 8px #00ffff; 
+		color: #ff00ff;
+	}
+	.form-container, .messages { 
+		padding: 20px;
+		margin-top: 60px;
+		max-height: 90%;
+	}
+
+.form-container { 
+	display: block;
+	width: 35%;
+	border: 6px solid #8ecece;
+	background-image: url(/images/back.svg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+
+
+	label { 
+		display: block; 
+		margin-bottom: 0.5rem;
+		text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.8); 
+	}
 }
 
 .messages { 
-	flex: 2;
-	background-color: #eee;
-	border: 6px solid #e2e0e0; 
+	display: flex;
+	flex-direction: column;
+	width: 65%;
+	background-image: url(/images/C-tree.gif);
+	background-color: rgba(0, 255, 255, 0.75);
+	background-position: center;
+	background-size: 40%;
+	background-repeat: no-repeat;
+	border: 6px solid #ff00d462;
 }
 
 input, textarea { 
 	display: block; 
 	width: 100%;
-	border: 2px solid #bfcfd6;
-	//border-color: #bfcfd6; 
+	border: 2px solid #00ffff; 
 	border-radius: 4px; 
 	font-size: 0.8rem; 
 	padding: 0.4rem; 
 	border-style: solid;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.479);
+	
 }
 
-textarea { height: 135px; }
+textarea { 
+	height: 135px;
+ }
 
 
 
 form {
-	//background: #000;
 	padding: 3px;
 	margin: 12px auto;
 
 	input[type=submit] { 
 		width: auto; 
-		padding: 10px; 
-		background-color: rgb(75, 200, 17);
+		padding: 3px 10px;
+		background-color: rgba(0, 255, 255, 0.6);
 		margin-top: 1rem; 
 		border-radius: 8px;
 		color: white;
 		cursor: pointer;
 		text-transform: uppercase;
 		font-weight: bold;
+		font-size: 1rem;
+		text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+		box-shadow: 1px .5px 5px rgba(0, 0, 0, 0.5);
+		
 	}
 }
 
-#messages {
-	list-style-type: none; margin: 0; padding: 0;
-
-	li { padding: 5px 10px;	}
-	li:nth-child(odd) { background: #eee; }
+#message-box{
+	
+	overflow-y: auto;
 }
 
-// imports
+#messages {
+	list-style-type: none; 
+	margin: 0; 
+	padding: 0;
+	max-height: 100%;
+	word-wrap: break-word;
 
-@import 'modules/_message';
+	li { padding: 5px 10px;	}
+	li:nth-child(odd) { background: rgb(255, 0, 0); }
+}
+
+
+
+}

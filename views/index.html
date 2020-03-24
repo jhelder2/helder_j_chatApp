@@ -5,26 +5,39 @@
 	<meta charset="UTF-8">
 	<title>Socket IO Chat with Node!</title>
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="https://use.typekit.net/erw8uhe.css">
+	<link rel="shortcut icon" href="#" />
 	<script src="https://unpkg.com/vue"></script>
 </head>
 
 <body>
 	<main id="app">
-		<section class="form-container">
-			<label for="nickname">Your Nickname (optional)</label>
-			<input v-model="nickName" type="text" id="nickname" class="nickname" placeholder="What is your nickname?">
-
+	<section v-bind:style="styleObject" class="light-box">
+		<div class="login-container">
+			<img src="/images/C-tree.gif" alt="tree">
 			<form>
-				<label for="message">Something to say?</label>
+				<h1>Tree Chat App </br><i>Welcome!</i></h1>
+				<div class="uname">
+					<label for="name">Your Name:</label>
+					<input name="name" v-model="username" class="name-input" type="text" max-length="15" placeholder="(example) John Doe..">
+					<input @click.prevent="add_user" class="go-button" type="submit" for="username">
+				</div>
+			</form>
+		</div>
+	</section>
+		<h1>It's The Tree Chat App</h1>
+		<section class="form-container">
+			<form>
+				<label for="message">Message:</label>
 				<textarea v-model="message" class="message" type="text" autocomplete="off" id="textarea"></textarea>
 				<input @click.prevent="dispatchMessage" type="submit">
 			</form>
 		</section>
 
-		<section class="messages">
-			<ul id="messages" v-for="message in messages">
+		<section id="message-box" class="messages">
+			<ul id="messages" >
 				<!-- render a new message component for every message -->
-				<newmessage :msg="message"></newmessage>
+				<newmessage :msg="message" v-for="message in messages"></newmessage>
 			</ul>
 		</section>
 	</main>
